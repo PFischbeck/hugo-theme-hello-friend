@@ -28,17 +28,19 @@
           >— {{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span
         >
       {{ end }}
-      <span class="post-translations">— [ 
-        {{ $pageLang := .Page.Language}}
-        {{ range .AllTranslations }}
-          {{ if eq $pageLang .Language }}
-            {{ .Language.LanguageName }}
-          {{ else }}
-	          <a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
-          {{ end }}
-        {{ end}}
-         ]
-      </span>
+      {{ if .IsTranslated }}
+        <span class="post-translations">— [ 
+          {{ $pageLang := .Page.Language}}
+          {{ range .AllTranslations }}
+            {{ if eq $pageLang .Language }}
+              {{ .Language.LanguageName }}
+            {{ else }}
+                <a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+            {{ end }}
+          {{ end}}
+           ]
+        </span>
+      {{ end }}
     </div>
 
     {{ if .Params.tags }}
