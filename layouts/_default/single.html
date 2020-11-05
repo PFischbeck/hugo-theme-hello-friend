@@ -7,9 +7,9 @@
     <div class="post-meta">
       {{ if .Date | default nil }}
         {{ with .Date }}
-            <span class="post-date">
-                {{ partial "date.html" (dict "date" . "language" $.Page.Language "monate" $.Site.Data.monate) }}
-            </span>
+          <span class="post-date">
+            {{ partial "date.html" (dict "date" . "language" $.Page.Language "monate" $.Site.Data.monate) }}
+          </span>
         {{ end }}
         
         {{ if eq .Type $contentTypeName }}

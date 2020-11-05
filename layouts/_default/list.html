@@ -7,9 +7,9 @@
           {{ if .Date }}
             {{ with .Date }}
               <span class="post-date">
-              {{ partial "date.html" (dict "date" . "language" $.Page.Language "monate" $.Site.Data.monate) }}
-            </span>
-          {{ end }}
+                {{ partial "date.html" (dict "date" . "language" $.Page.Language "monate" $.Site.Data.monate) }}
+              </span>
+            {{ end }}
 
             {{ if $.Site.Params.LastModDisplay }}
               {{ partial "lastmod.html" . }}
